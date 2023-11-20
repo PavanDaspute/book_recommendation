@@ -22,12 +22,12 @@ def recommend(book_name):
         rec_books.append(books.iloc[i[0]].title)
     return rec_books
 
-books_dict = pickle.load(open(r'C:\Users\PAVAN\book_recommendation_project\books_dict.pkl', 'rb'))
+books_dict = pickle.load(open(r'books_dict.pkl', 'rb'))
 books = pd.DataFrame(books_dict)
 
-similarity = pickle.load(open(r'C:\Users\PAVAN\book_recommendation_project\similarity.pkl', 'rb'))
-st.title('Movie Recommender System')
-option = st.selectbox('Select your Movie:', books['title'].values)
+similarity = pickle.load(open(r'similarity.pkl', 'rb'))
+st.title('Book Recommender System')
+option = st.selectbox('Select your Book:', books['title'].values)
 
 if st.button('Recommend'):
     recommendations = recommend(option)
